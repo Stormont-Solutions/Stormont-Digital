@@ -541,7 +541,7 @@
         <div><dt>Based</dt><dd>North East England</dd></div>
         <div><dt>Response</dt><dd>Within 1 working day</dd></div>
       </dl>
-      <form onsubmit="event.preventDefault(); this.querySelector('.form-note').style.display='block';">
+      <form id="enquiry-form">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" type="text" required>
@@ -564,11 +564,36 @@
           <textarea id="details" placeholder="Your area, current site if you have one, anything else useful."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send enquiry</button>
-        <p class="form-note mono" style="display:none; margin-top:16px; font-size:0.8rem; color:var(--slate);">Thanks — this is a demo form for now, so nothing's been sent. Wire it up to email or a form service when you're ready to go live.</p>
+        <p class="form-note mono" style="display:none; margin-top:16px; font-size:0.8rem; color:var(--slate);">Opening your email app with the details filled in — just hit send there.</p>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  document.getElementById('enquiry-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const trade = document.getElementById('trade').value.trim();
+    const need = document.getElementById('need').value;
+    const details = document.getElementById('details').value.trim();
+
+    const subject = `Website enquiry — ${name || 'New enquiry'}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Trade: ${trade}`,
+      `Needs: ${need}`,
+      '',
+      'Details:',
+      details
+    ];
+    const body = bodyLines.join('\n');
+    const mailto = `mailto:will.stormont@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+    this.querySelector('.form-note').style.display = 'block';
+  });
+</script>
 
 <footer>
   <div class="wrap footer-row">
