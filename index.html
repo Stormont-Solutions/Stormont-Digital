@@ -272,25 +272,36 @@
 
   .service-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    max-width:920px;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:48px;
+    max-width:1080px;
     margin:0 auto;
   }
-  @media (max-width:640px){ .service-grid{grid-template-columns:1fr; gap:56px;} }
+  @media (max-width:900px){ .service-grid{grid-template-columns:1fr 1fr; gap:48px;} }
+  @media (max-width:600px){ .service-grid{grid-template-columns:1fr; gap:56px;} }
   .service-card{
-    padding-top:26px;
-    border-top:1px solid var(--line);
+    padding-top:22px;
+    border-top:2px solid var(--text);
   }
-  .service-card .spec{
+  .service-card h3{
+    font-size:1.15rem;
+    font-weight:600;
+    letter-spacing:-0.005em;
+    margin-bottom:6px;
+  }
+  .service-card .tagline{
     font-family:'IBM Plex Mono',monospace;
-    font-size:0.66rem;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
     color:var(--slate-light);
-    letter-spacing:0.1em;
     margin-bottom:16px;
   }
-  .service-card h3{font-size:1.3rem; font-weight:400; margin-bottom:14px;}
-  .service-card p{color:var(--slate); line-height:1.7; margin-bottom:8px; font-size:0.95rem;}
+  .service-card p{color:var(--slate); line-height:1.7; margin-bottom:8px; font-size:0.92rem;}
+
+  .service-card.reveal:nth-child(1){transition-delay:0s;}
+  .service-card.reveal:nth-child(2){transition-delay:0.12s;}
+  .service-card.reveal:nth-child(3){transition-delay:0.24s;}
 
   .tier-label{
     font-family:'IBM Plex Mono',monospace;
@@ -305,34 +316,11 @@
   .plain-list li{
     padding:9px 0;
     border-top:1px solid var(--line);
-    font-size:0.9rem;
+    font-size:0.88rem;
     color:var(--text);
     line-height:1.5;
   }
   .plain-list li:last-child{border-bottom:1px solid var(--line);}
-
-  .addon{
-    max-width:920px;
-    margin:56px auto 0;
-    padding-top:32px;
-    border-top:1px solid var(--line);
-  }
-  .addon .spec{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.66rem;
-    color:var(--slate-light);
-    letter-spacing:0.1em;
-    margin-bottom:12px;
-  }
-  .addon h3{font-size:1.05rem; font-weight:500; margin-bottom:10px;}
-  .addon p{color:var(--slate); line-height:1.6; margin-bottom:4px; font-size:0.9rem; max-width:60ch;}
-  .addon-columns{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    margin-top:6px;
-  }
-  @media (max-width:640px){ .addon-columns{grid-template-columns:1fr; gap:8px;} }
 
   .fine-print{
     max-width:640px;
@@ -530,10 +518,10 @@
       <p>Website, Google Business Profile and Facebook Page. Take one, two, or all three — whatever the business needs.</p>
     </div>
 
-    <div class="service-grid reveal">
-      <article class="service-card">
-        <div class="spec mono">WEBSITE</div>
-        <h3>Build &amp; care</h3>
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <h3>Website</h3>
+        <div class="tagline">Build &amp; care</div>
         <p>A fast, mobile-friendly website designed to turn local visitors into genuine enquiries.</p>
 
         <h4 class="tier-label">One-off build</h4>
@@ -556,9 +544,9 @@
         </ul>
       </article>
 
-      <article class="service-card">
-        <div class="spec mono">GOOGLE BUSINESS PROFILE</div>
-        <h3>Google presence</h3>
+      <article class="service-card reveal">
+        <h3>Google Business Profile</h3>
+        <div class="tagline">Google presence</div>
         <p>Help the business appear accurately across Google Search and Maps and give potential customers the information they need.</p>
 
         <h4 class="tier-label">One-off setup</h4>
@@ -580,32 +568,28 @@
           <li>Performance reporting</li>
         </ul>
       </article>
-    </div>
 
-    <article class="addon reveal">
-      <div class="spec mono">FACEBOOK PAGE</div>
-      <h3>Setup &amp; activity</h3>
-      <p>A properly branded business page connected to the website and Google presence.</p>
-      <div class="addon-columns">
-        <div>
-          <h4 class="tier-label">One-off setup</h4>
-          <ul class="plain-list">
-            <li>Page setup and branding</li>
-            <li>Business details and call-to-action</li>
-            <li>Website and Google profile links</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="tier-label">Monthly activity</h4>
-          <ul class="plain-list">
-            <li>Agreed posts and photo updates</li>
-            <li>Message notifications</li>
-            <li>Basic comment monitoring</li>
-            <li>Business information updates</li>
-          </ul>
-        </div>
-      </div>
-    </article>
+      <article class="service-card reveal">
+        <h3>Facebook Page</h3>
+        <div class="tagline">Setup &amp; activity</div>
+        <p>A properly branded business page connected to the website and Google presence.</p>
+
+        <h4 class="tier-label">One-off setup</h4>
+        <ul class="plain-list">
+          <li>Page setup and branding</li>
+          <li>Business details and call-to-action</li>
+          <li>Website and Google profile links</li>
+        </ul>
+
+        <h4 class="tier-label">Monthly activity</h4>
+        <ul class="plain-list">
+          <li>Agreed posts and photo updates</li>
+          <li>Message notifications</li>
+          <li>Basic comment monitoring</li>
+          <li>Business information updates</li>
+        </ul>
+      </article>
+    </div>
 
     <p class="fine-print reveal">Your business retains ownership of its domain, website and online profiles. Any third-party subscriptions, advertising costs or work outside the agreed allowance will be confirmed separately.</p>
   </div>
