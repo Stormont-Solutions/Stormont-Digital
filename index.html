@@ -272,12 +272,11 @@
 
   .service-grid{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:48px;
-    max-width:1080px;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    max-width:920px;
     margin:0 auto;
   }
-  @media (max-width:900px){ .service-grid{grid-template-columns:1fr 1fr; gap:48px;} }
   @media (max-width:640px){ .service-grid{grid-template-columns:1fr; gap:56px;} }
   .service-card{
     padding-top:26px;
@@ -291,22 +290,57 @@
     margin-bottom:16px;
   }
   .service-card h3{font-size:1.3rem; font-weight:400; margin-bottom:14px;}
-  .service-card p{color:var(--slate); line-height:1.7; margin-bottom:22px; font-size:0.95rem;}
-  .spec-list{list-style:none; margin:0; padding:0;}
-  .spec-list li{
-    display:flex;
-    justify-content:space-between;
-    gap:12px;
-    padding:12px 0;
+  .service-card p{color:var(--slate); line-height:1.7; margin-bottom:8px; font-size:0.95rem;}
+
+  .tier-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text);
+    margin:26px 0 10px;
+  }
+  .plain-list{list-style:none; margin:0; padding:0;}
+  .plain-list li{
+    padding:9px 0;
     border-top:1px solid var(--line);
     font-size:0.9rem;
+    color:var(--text);
+    line-height:1.5;
   }
-  .spec-list li:last-child{border-bottom:1px solid var(--line);}
-  .spec-list li span:last-child{
+  .plain-list li:last-child{border-bottom:1px solid var(--line);}
+
+  .addon{
+    max-width:920px;
+    margin:56px auto 0;
+    padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .addon .spec{
     font-family:'IBM Plex Mono',monospace;
-    color:var(--slate);
+    font-size:0.66rem;
+    color:var(--slate-light);
+    letter-spacing:0.1em;
+    margin-bottom:12px;
+  }
+  .addon h3{font-size:1.05rem; font-weight:500; margin-bottom:10px;}
+  .addon p{color:var(--slate); line-height:1.6; margin-bottom:4px; font-size:0.9rem; max-width:60ch;}
+  .addon-columns{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    margin-top:6px;
+  }
+  @media (max-width:640px){ .addon-columns{grid-template-columns:1fr; gap:8px;} }
+
+  .fine-print{
+    max-width:640px;
+    margin:44px auto 0;
+    text-align:center;
     font-size:0.78rem;
-    white-space:nowrap;
+    line-height:1.7;
+    color:var(--slate-light);
   }
 
   .process-grid{
@@ -338,12 +372,12 @@
   .why .section-head p{color:#A9ACA8;}
   .why-grid{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:40px;
-    max-width:960px;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    max-width:680px;
     margin:0 auto;
   }
-  @media (max-width:760px){ .why-grid{grid-template-columns:1fr;} }
+  @media (max-width:600px){ .why-grid{grid-template-columns:1fr;} }
   .why-item{
     border-top:1px solid var(--line-dark);
     padding-top:20px;
@@ -473,9 +507,9 @@
         <polygon class="needle-b" points="25.78,10.22 16.73,16.73 11.64,24.36"></polygon>
       </svg>
     </div>
-    <span class="eyebrow">A North East based digital company</span>
+    <span class="eyebrow">Founded in the North East of England</span>
     <h1>You do the work.<br><strong>We build the site.</strong></h1>
-    <p class="lead">Websites, Google Business Profiles and Facebook Pages for tradespeople — whatever the trade. A North East based company, set up properly and kept current, without you touching a laptop.</p>
+    <p class="lead">Websites, Google Business Profiles and Facebook Pages for tradespeople — whatever the trade. Set up properly and kept current, without you touching a laptop.</p>
     <div class="cta-row">
       <a href="#contact" class="btn btn-primary">Get a quote</a>
       <a href="#process" class="btn btn-ghost">See how it works</a>
@@ -492,44 +526,88 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">What we do</span>
-      <h2>Three jobs, done <strong>properly.</strong></h2>
-      <p>No bundles you don't need. Pick one, two, or all three — everything's built to work together.</p>
+      <h2>Get your business into <strong>the digital world.</strong></h2>
+      <p>Website, Google Business Profile and Facebook Page. Take one, two, or all three — whatever the business needs.</p>
     </div>
+
     <div class="service-grid reveal">
-      <div class="service-card">
+      <article class="service-card">
         <div class="spec mono">WEBSITE</div>
-        <h3>Build &amp; management</h3>
-        <p>A site that loads fast, works on a phone on a job site, and actually gets updated when your prices or services change.</p>
-        <ul class="spec-list">
-          <li><span>Site built &amp; hosted</span><span>Fixed price</span></li>
-          <li><span>Content updates</span><span>As needed</span></li>
-          <li><span>Mobile &amp; speed checks</span><span>Ongoing</span></li>
-          <li><span>Domain &amp; email setup</span><span>Included</span></li>
+        <h3>Build &amp; care</h3>
+        <p>A fast, mobile-friendly website designed to turn local visitors into genuine enquiries.</p>
+
+        <h4 class="tier-label">One-off build</h4>
+        <ul class="plain-list">
+          <li>Website design and build</li>
+          <li>Mobile and speed optimisation</li>
+          <li>Domain connection</li>
+          <li>Professional email setup</li>
+          <li>Analytics and enquiry tracking</li>
+          <li>Two rounds of revisions</li>
         </ul>
-      </div>
-      <div class="service-card">
-        <div class="spec mono">GOOGLE PROFILE</div>
-        <h3>Business Profile</h3>
-        <p>The listing people actually find you through. Set up, verified, and kept accurate — hours, photos, service areas, reviews.</p>
-        <ul class="spec-list">
-          <li><span>Profile setup &amp; verification</span><span>One-off</span></li>
-          <li><span>Photos &amp; details refresh</span><span>Monthly</span></li>
-          <li><span>Review monitoring</span><span>Ongoing</span></li>
-          <li><span>Service area updates</span><span>As needed</span></li>
+
+        <h4 class="tier-label">Monthly website care</h4>
+        <ul class="plain-list">
+          <li>Hosting, SSL and backups</li>
+          <li>Security and uptime monitoring</li>
+          <li>Agreed content updates</li>
+          <li>Regular performance checks</li>
+          <li>Performance reporting</li>
         </ul>
-      </div>
-      <div class="service-card">
-        <div class="spec mono">FACEBOOK PAGE</div>
-        <h3>Setup &amp; management</h3>
-        <p>A proper business Page, not a personal profile — set up correctly and kept active so it brings work in.</p>
-        <ul class="spec-list">
-          <li><span>Page setup &amp; branding</span><span>One-off</span></li>
-          <li><span>Posts &amp; photo updates</span><span>Monthly</span></li>
-          <li><span>Messages &amp; reviews</span><span>Ongoing</span></li>
-          <li><span>Linked to site &amp; profile</span><span>Included</span></li>
+      </article>
+
+      <article class="service-card">
+        <div class="spec mono">GOOGLE BUSINESS PROFILE</div>
+        <h3>Google presence</h3>
+        <p>Help the business appear accurately across Google Search and Maps and give potential customers the information they need.</p>
+
+        <h4 class="tier-label">One-off setup</h4>
+        <ul class="plain-list">
+          <li>Profile claim and configuration</li>
+          <li>Verification assistance</li>
+          <li>Categories, services and service areas</li>
+          <li>Opening hours and contact details</li>
+          <li>Initial photo upload</li>
+          <li>Website and enquiry tracking links</li>
         </ul>
-      </div>
+
+        <h4 class="tier-label">Monthly management</h4>
+        <ul class="plain-list">
+          <li>Photos and profile updates</li>
+          <li>Review monitoring</li>
+          <li>Drafted review responses</li>
+          <li>Hours and service updates</li>
+          <li>Performance reporting</li>
+        </ul>
+      </article>
     </div>
+
+    <article class="addon reveal">
+      <div class="spec mono">FACEBOOK PAGE</div>
+      <h3>Setup &amp; activity</h3>
+      <p>A properly branded business page connected to the website and Google presence.</p>
+      <div class="addon-columns">
+        <div>
+          <h4 class="tier-label">One-off setup</h4>
+          <ul class="plain-list">
+            <li>Page setup and branding</li>
+            <li>Business details and call-to-action</li>
+            <li>Website and Google profile links</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="tier-label">Monthly activity</h4>
+          <ul class="plain-list">
+            <li>Agreed posts and photo updates</li>
+            <li>Message notifications</li>
+            <li>Basic comment monitoring</li>
+            <li>Business information updates</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <p class="fine-print reveal">Your business retains ownership of its domain, website and online profiles. Any third-party subscriptions, advertising costs or work outside the agreed allowance will be confirmed separately.</p>
   </div>
 </section>
 
@@ -538,7 +616,6 @@
     <div class="section-head reveal">
       <span class="eyebrow">How it works</span>
       <h2>Four steps, <strong>start to finish.</strong></h2>
-      <p>You give an hour up front. After that, it runs in the background.</p>
     </div>
     <div class="process-grid reveal">
       <div class="process-step">
@@ -549,7 +626,7 @@
       <div class="process-step">
         <span class="num mono">02</span>
         <h4>Build</h4>
-        <p>Site and/or Google profile drafted and sent over for your sign-off.</p>
+        <p>Site, Google profile and/or Facebook Page drafted and sent over for your sign-off.</p>
       </div>
       <div class="process-step">
         <span class="num mono">03</span>
@@ -573,10 +650,6 @@
     </div>
     <div class="why-grid reveal">
       <div class="why-item">
-        <h4>No jargon</h4>
-        <p>Plain explanations of what's being built and why — no agency-speak, no upsells you didn't ask for.</p>
-      </div>
-      <div class="why-item">
         <h4>Straightforward pricing</h4>
         <p>One fixed price to set up, one clear monthly rate to maintain. Nothing hidden in the small print.</p>
       </div>
@@ -598,9 +671,6 @@
     <div class="contact-inner reveal">
       <dl class="contact-info">
         <div><dt>Email</dt><dd>will.stormont@gmail.com</dd></div>
-        <div><dt>Based</dt><dd>North East England</dd></div>
-        <div><dt>Covering</dt><dd>Newcastle, Gateshead, Sunderland, Durham &amp; beyond</dd></div>
-        <div><dt>Response</dt><dd>Within 1 working day</dd></div>
       </dl>
       <form id="enquiry-form">
         <div class="field">
