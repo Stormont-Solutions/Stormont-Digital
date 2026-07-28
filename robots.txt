@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stormontdigital.co.uk/sitemap.xml
